@@ -61,8 +61,7 @@ int main(void) {
         int squareY = 2;
 
         // Rendering the grid
-        for (int row = 0; row < mapSize; row++) {
-            squareX = 2;
+        for (int row = 0; row < mapSize; row++, squareX = 2) {
             for (int column = 0; column < mapSize; column++) {
                 if (gameMap[row][column]) {
                     DrawRectangle(squareX, squareY, squareSize, squareSize, WHITE);
@@ -131,7 +130,7 @@ int main(void) {
         // Drawing the rays
         for (int lines = 0; lines < lineCount; lines++) {
             float raylength = 0;
-            while (raylength < sqrt(pow(windowHeight, 2) * pow(windowWidth, 2))) {
+            while (raylength < windowWidth) {
                 int xPos = playerXNormalized + raylength * cos(deg * PI / 180);
                 int yPos = playerYNormalized + raylength * sin(deg * PI / 180);
                 if (gameMap[(int)floor(yPos / tileSize)][(int)floor(xPos / tileSize)]) {
